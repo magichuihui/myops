@@ -3,7 +3,7 @@
 ## First step
 
 ```bash
-    **# bash ipsec.sh**
+    # bash ipsec.sh
 ```
 
 ## Next step
