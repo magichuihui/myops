@@ -2,7 +2,9 @@
 
 ## First step
 
-    `# bash ipsec.sh`
+```bash
+    **# bash ipsec.sh**
+```
 
 ## Next step
 `**bash xl2tpd.sh**`
