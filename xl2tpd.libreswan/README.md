@@ -1,10 +1,10 @@
 # install
 
 ## First step
-**`bash ipsec.sh`**
+`**bash ipsec.sh**`
 
 ## Next step
-**`bash xl2tpd.sh`**
+`**bash xl2tpd.sh**`
 
 ## Final
-**`bash firewalld.sh`**
+`**bash firewalld.sh**`
