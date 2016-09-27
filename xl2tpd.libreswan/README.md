@@ -7,7 +7,13 @@
 ```
 
 ## Next step
-`**bash xl2tpd.sh**`
+
+```bash
+    # bash xl2tpd.sh
+```
 
 ## Final
-`**bash firewalld.sh**`
+
+```bash
+    # bash firewalld.sh
+```
