@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # ipsec.sh
 
-# nothing
 # install libreswan
 yum install -y nss-devel nspr-devel pkgconfig pam-devel \
     libcap-ng-devel libselinux-devel \
