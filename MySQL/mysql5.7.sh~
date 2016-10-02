@@ -49,29 +49,7 @@ bin/mysql -uroot -h127.0.0.1 -e "SET PASSWORD FOR 'root'@'localhost' = password(
 cp support-files/mysql.server /etc/init.d/mysql.server
 
 # remove the old kernel
-cat >> /usr/lib/systemd/system/rm-old-kerneld.service <<EOF
-[Service]
-ExecStart=/bin/bash /root/rm-old-kernel.sh
-
-[Install]
-WantedBy=multi-user.target
-
-EOF
-
-cat >> /root/rm-old-kernel.sh <<EOF
-#!/usr/bin/env bash
-
 rpm -qa | grep kernel | awk '$1 !~ /.*36.1/' | xargs yum remove -y
-
-systemctl disable rm-old-kerneld.service
-
-rm -f /usr/lib/systemd/system/rm-old-kerneld.service
-
-rm -f /root/rm-old-kernel.sh
-
-EOF
-
-systemctl enable rm-old-kerneld.service
 
 # add mysql PATH
 echo -e '\nPATH=/usr/local/mysql/bin:$PATH' >> /etc/profile
