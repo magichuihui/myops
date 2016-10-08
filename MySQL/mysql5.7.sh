@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # mysql5.7.sh
 
-yum makecache fast && yum update -y && yum install -y gcc-c++ ncurses-devel cmake make perl gcc autoconf automake zlib libxml libgcrypt libtool bison
+yum makecache fast && yum update -y && yum install -y wget gcc-c++ ncurses-devel cmake make perl gcc autoconf automake zlib libxml libgcrypt libtool bison
 
 # assume there is a mysql-boost-5.7.15.tar.gz file in /usr/local/src
 cd /usr/local/src
+wget http://cdn.mysql.com//Downloads/MySQL-5.7/mysql-boost-5.7.15.tar.gz
 tar zxvf mysql-boost-5.7.15.tar.gz
 
 # add mysql user and group

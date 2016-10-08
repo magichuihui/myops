@@ -2,10 +2,10 @@
 # slave-a.sh
 
 # 1. Lock master-a's table
-mysql -uroot -ppassword -hmaster-a.baiyjk.com -e "FLUSH TABLE WITH READ LOCK;SELECT SLEEP(120);"
+mysql -uroot -ppassword -hmaster-a.baiyjk.com -e "FLUSH TABLE WITH READ LOCK;SELECT SLEEP(120);" &
 
 # 2. Configure slave-a's my.cnf
-sed -i '/\[mysqld\] a server-id=11' /etc/my.cnf
+sed -i '/\[mysqld\]/ a server-id=11\nreport-host=slave-a.baiyjk.com' /etc/my.cnf
 systemctl restart mysqld.service
 
 # 3. Obtain master-a's binary log coordinate
@@ -19,5 +19,5 @@ mysql -uroot -ppassword -h127.0.0.1 -e "CHANGE MASTER TO \
     MASTER_USER='repl', \
     MASTER_PASSWORD='replication', \
     MASTER_LOG_FILE='${log_file}', \
-    MASTER_LOG_POS='${log_pos}'; \
+    MASTER_LOG_POS=${log_pos}; \
     START SLAVE;"
