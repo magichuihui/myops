@@ -2,6 +2,7 @@
 # mysql5.7.sh
 
 yum makecache fast && yum update -y && yum install -y wget gcc-c++ ncurses-devel cmake make perl gcc autoconf automake zlib libxml libgcrypt libtool bison
+yum remove -y mariadb*
 
 # assume there is a mysql-boost-5.7.15.tar.gz file in /usr/local/src
 cd /usr/local/src

@@ -1,0 +1,2 @@
+netstat -tlnp | awk 'NR > 2  {split($4, ports, ":");split($7, server, "/");printf("\t%-15s\t%6s\t%s\n", server[2], server[1], ports[length(ports)]);}' | sort -nk3 | awk 'BEGIN {"ip -4 route get 1" | getline str; split(str, arr, " "); print "# " arr[length(arr)];printf("\n\t%-15s\t%6s\t%s\n", "server", "pid", "port");} {print}' > netstat.$(hostname)
+
