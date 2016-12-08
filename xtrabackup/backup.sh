@@ -42,7 +42,7 @@ if [ ! -d base ]; then
 fi
 
 # Then, we use an incremental backup base on the full backup or 
-# an incremental backup the last day.
+# the incremental backup created on the last day.
 incremental_basedir=$backup_dir/bak/base
 
 for ((i=1; i<7; i++)); do
