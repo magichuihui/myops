@@ -17,11 +17,11 @@ Vagrant是用来构建虚拟开发环境的工具，支持Virtualbox，VMware等
 
 * windowns 7 专业版
 
-* [cygwin] http://www.cygwin.com/ 
+* [cygwin](http://www.cygwin.com/) 
 
-* [VirtualBox] https://www.virtualbox.org/wiki/Downloads
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-* [Vagrant] https://www.vagrantup.com/downloads.html
+* [Vagrant](https://www.vagrantup.com/downloads.html)
 
 ## 常用命令
 
