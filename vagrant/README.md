@@ -17,7 +17,7 @@ Vagrant是用来构建虚拟开发环境的工具，支持Virtualbox，VMware等
 
 * windowns 7 专业版
 
-* [cygwin](http://www.cygwin.com/) 
+* [cygwin](http://www.cygwin.com/), 因windows主机不支持ssh，可能需要安装cygwin。
 
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
