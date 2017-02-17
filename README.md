@@ -1,1 +1,1 @@
-## Tested in Centos 7
+## Tested on Centos 7
