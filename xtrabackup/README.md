@@ -3,8 +3,11 @@
 ### File usage.
 
 backup-hourly.sh        Backup mysql per hour.
+
 backup.sh               Backup mysql per day.
+
 backupuser.sh           Create an user on mysql for backup
+
 restore.sh              Restore Mysql
 
 ### How to use.
