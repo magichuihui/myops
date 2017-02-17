@@ -37,6 +37,7 @@ chown -R mysql:mysql .
 
 # systemd configure
 cp -r usr/* /usr
+cp support-files/my-default.cnf /etc/my.cnf
 systemctl enable mysqld
 
 # initialize mysqld

@@ -16,13 +16,34 @@ if [ $dirs -lt 1 ]; then
     exit 2
 fi
 
+# -----------------------------------------------------
+# Functions .
+# -----------------------------------------------------
+
+# Function for Start mysqld
+function start_mysqld() {
+    if [ -x /usr/bin/systemctl ]; then
+        systemctl start mysqld
+    elif [ -x /etc/init.d/mysql.server ]; then
+        /etc/init.d/mysql.server start
+    fi
+}
+# Function for stop mysqld
+function stop_mysqld() {
+    if [ -x /usr/bin/systemctl ]; then
+        systemctl stop mysqld
+    elif [ -x /etc/init.d/mysql.server ]; then
+        /etc/init.d/mysql.server stop
+    fi
+}
+
 function restore() {
     innobackupex --copy-back $1
     chown -R mysql:mysql $2
-    systemctl start mysqld
+    start_mysqld
 }
 
-systemctl stop mysqld
+stop_mysqld
 
 # Get data dir from /etc/my.cnf
 data_dir=`awk -F "=" '/^datadir=/ {print $2;}' /etc/my.cnf`
@@ -47,14 +68,19 @@ fi
 # Prepare the base file
 innobackupex --apply-log --redo-only $backup_dir/base
 
-for ((i=1; i<$dirs-1; i++ )); do
+for incremental_dir in `ls $backup_dir | grep -v base | sort -nk 1 | head -n -1`; do
 
-    innobackupex --apply-log --redo-only $backup_dir/base --incremental-dir=$backup_dir/$i
+    echo -e "-------------------------------------------------------------------\n"
+    echo "incremental_dir is $incremental_dir"
+    echo -e "-------------------------------------------------------------------\n"
+    innobackupex --apply-log --redo-only $backup_dir/base --incremental-dir=$backup_dir/$incremental_dir
 
 done
 
-innobackupex --apply-log $backup_dir/base --incremental-dir=$backup_dir/$i
+last_incremental=`ls $backup_dir | grep -v base | sort -nk 1 | tail -n 1`
+innobackupex --apply-log $backup_dir/base --incremental-dir=$backup_dir/$last_incremental
 
 restore $backup_dir/base $data_dir
 
 exit 0
+
