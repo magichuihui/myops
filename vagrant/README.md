@@ -76,8 +76,8 @@ Vagrant是用来构建虚拟开发环境的工具，支持Virtualbox，VMware等
 
 ### box设置
 
-    # box的名字
-    config.vm.box = "CentOS7"
+> # box的名字
+> `config.vm.box = "CentOS7"`
 
 ### hostname设置
 
