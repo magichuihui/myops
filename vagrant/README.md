@@ -51,7 +51,7 @@ vagrant box list
 
 ### 初始化
 
-```
+```bash
 # 进入目录
 # cd /cygdrive/d/boxes; mkdir vagrant_getting_started;
 # 初始化一个CentOS7的虚拟机
@@ -62,25 +62,25 @@ vagrant init CentOS7
 
 ### 启动虚拟机
 
-```
+```bash
 vagrant up
 ```
 
 ### ssh到虚拟机
     
-```
+```bash
 vagrant ssh
 ```
 
 ### 重启虚拟机（重新加载配置文件）
 
-```    
+```bash
 vagrant reload
 ```
 
 ### 打包分发
 
-```
+```bash
 vagrant package --output mybox.box --vagrantfile Vagrantfile
 ```
 
@@ -91,20 +91,20 @@ vagrant package --output mybox.box --vagrantfile Vagrantfile
 
 ### box设置
 
-```
+```bash
 # box的名字
 config.vm.box = "CentOS7"
 ```
 
 ### hostname设置
 
-```
+```bash
 config.vm.hostname = "localhost"
 ```
 
 ### 虚拟机的网络设置
 
-```
+```bash
 # 虚拟机默认第一个网卡是NAT模式，这是为方便ssh登录，不能更改。我们可以再添加另外的网卡
 # host-only 网络
 config.vm.network "private_network", ip: "192.168.33.10"
@@ -117,7 +117,7 @@ config.vm.network "forwarded_port", guest: 80, host: 8080
 
 ### 同步目录
 
-```    
+```bash
 # 同步目录跟Virtualbox的共享文件夹是同一个东西，所以要使用这个功能虚拟机上必须安装VBOXGuestAdditions(设备->安装增加功能)
 config.vm.synced_folder "./www", "/var/www/html"
 ```
