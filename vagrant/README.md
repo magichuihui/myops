@@ -27,7 +27,7 @@ Vagrant是用来构建虚拟开发环境的工具，支持Virtualbox，VMware等
 
 ### 添加box
 
-```
+```bash
 # box是已经打包好的虚拟机镜像，可以从网站上下载，也可以自己打包生成
 # ./CentOS-7-x86_64-Vagrant-1611_01.VirtualBox.box 是提前下载好的文件
 vagrant box add CentOS7 ./CentOS-7-x86_64-Vagrant-1611_01.VirtualBox.box
@@ -38,7 +38,7 @@ vagrant box add CentOS7 ./CentOS-7-x86_64-Vagrant-1611_01.VirtualBox.box
 
 ### 查看已安装的box
 
-```
+```bash
 # 查看本机已经安装的box, 其中CentOS7即为我们刚才安装的box
 vagrant box list
 
