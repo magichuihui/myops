@@ -69,35 +69,35 @@
 
 构建之前项目的目录结构如下：
 
-    src
-    tests
-    build.xml
-    build
-    |-- phpcs.xml
-    |-- phpdox.xml
-    |-- phpmd.xml
-    `-- phpunit.xml
+>src
+>tests
+>build.xml
+>build
+>|-- phpcs.xml
+>|-- phpdox.xml
+>|-- phpmd.xml
+>`-- phpunit.xml
 
 构建之后：
 
-    src
-    tests
-    build.xml
-    build
-    |-- phpcs.xml
-    |-- phpdox.xml
-    |-- phpmd.xml
-    |-- phpunit.xml
-    |-- api ...
-    |-- coverage ...
-    `-- logs
-        |-- checkstyle.xml
-        |-- clover.xml
-        |-- crap4j.xml
-        |-- jdepend.xml
-        |-- junit.xml
-        |-- phploc.csv
-        |-- pmd-cpd.xml
-        `-- pmd.xml
+>src
+>tests
+>build.xml
+>build
+>|-- phpcs.xml
+>|-- phpdox.xml
+>|-- phpmd.xml
+>|-- phpunit.xml
+>|-- api ...
+>|-- coverage ...
+>`-- logs
+>    |-- checkstyle.xml
+>    |-- clover.xml
+>    |-- crap4j.xml
+>    |-- jdepend.xml
+>    |-- junit.xml
+>    |-- phploc.csv
+>    |-- pmd-cpd.xml
+>    `-- pmd.xml
 
  
