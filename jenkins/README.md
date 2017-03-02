@@ -60,5 +60,10 @@
 
 * [phpDox](http://phpdox.de/)
 
-可以下载phar文件，或者用composer来安装这些工具，但是要把它们加到变量PATH里，最后可以`phpunit`, `phpcs`, `phploc`, `pdepend`, `phpmd`, `phpcpd`, 以及 `phpdox` 来调用
+可以下载phar文件，或者用composer来安装这些工具，但是要把它们加到变量PATH里，最后可以通过 `<phpunit>`, `phpcs`, `phploc`, `pdepend`, `phpmd`, `phpcpd`, 以及 `phpdox` 来调用
+
+
+### 自动化构建
+
+用Apache Ant来调度自动化构建过程。构建的过程是通过build.xml来设置的（[点此下载]()）
 
