@@ -81,23 +81,23 @@ build
 构建之后：
 
 >src
-tests
-build.xml
-build
-|-- phpcs.xml
-|-- phpdox.xml
-|-- phpmd.xml
-|-- phpunit.xml
-|-- api ...
-|-- coverage ...
-`-- logs
-    |-- checkstyle.xml
-    |-- clover.xml
-    |-- crap4j.xml
-    |-- jdepend.xml
-    |-- junit.xml
-    |-- phploc.csv
-    |-- pmd-cpd.xml
-    `-- pmd.xml
+    tests
+    build.xml
+    build
+    |-- phpcs.xml
+    |-- phpdox.xml
+    |-- phpmd.xml
+    |-- phpunit.xml
+    |-- api ...
+    |-- coverage ...
+    `-- logs
+        |-- checkstyle.xml
+        |-- clover.xml
+        |-- crap4j.xml
+        |-- jdepend.xml
+        |-- junit.xml
+        |-- phploc.csv
+        |-- pmd-cpd.xml
+        `-- pmd.xml
 
  
