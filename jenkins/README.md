@@ -69,7 +69,7 @@
 
 构建之前项目的目录结构如下：
 
-```bash
+```
 src
 tests
 build.xml
@@ -82,7 +82,7 @@ build
 
 构建之后：
 
-```bash
+```
 src
 tests
 build.xml
