@@ -60,7 +60,7 @@
 
 * [phpDox](http://phpdox.de/)
 
-可以下载phar文件，或者用composer来安装这些工具，但是要把它们加到变量PATH里，最后可以通过 `<phpunit>`, `phpcs`, `phploc`, `pdepend`, `phpmd`, `phpcpd`, 以及 `phpdox` 来调用
+可以下载phar文件，或者用composer来安装这些工具，但是要把它们加到变量PATH里，最后可以通过 `phpunit`, `phpcs`, `phploc`, `pdepend`, `phpmd`, `phpcpd`, 以及 `phpdox` 来调用
 
 
 ### 自动化构建
@@ -70,34 +70,34 @@
 构建之前项目的目录结构如下：
 
 >src
->tests
->build.xml
->build
->|-- phpcs.xml
->|-- phpdox.xml
->|-- phpmd.xml
->`-- phpunit.xml
+tests
+build.xml
+build
+|-- phpcs.xml
+|-- phpdox.xml
+|-- phpmd.xml
+`-- phpunit.xml
 
 构建之后：
 
 >src
->tests
->build.xml
->build
->|-- phpcs.xml
->|-- phpdox.xml
->|-- phpmd.xml
->|-- phpunit.xml
->|-- api ...
->|-- coverage ...
->`-- logs
->    |-- checkstyle.xml
->    |-- clover.xml
->    |-- crap4j.xml
->    |-- jdepend.xml
->    |-- junit.xml
->    |-- phploc.csv
->    |-- pmd-cpd.xml
->    `-- pmd.xml
+tests
+build.xml
+build
+|-- phpcs.xml
+|-- phpdox.xml
+|-- phpmd.xml
+|-- phpunit.xml
+|-- api ...
+|-- coverage ...
+`-- logs
+    |-- checkstyle.xml
+    |-- clover.xml
+    |-- crap4j.xml
+    |-- jdepend.xml
+    |-- junit.xml
+    |-- phploc.csv
+    |-- pmd-cpd.xml
+    `-- pmd.xml
 
  
