@@ -1,6 +1,6 @@
 ## MySQL backup strategy
 
-### File usage.
+### Scripts usage.
 
 backup-hourly.sh        Backup mysql per hour.
 
@@ -10,6 +10,7 @@ backupuser.sh           Create an user on mysql for backup
 
 restore.sh              Restore Mysql
 
-### How to use.
+### How to use this via crontab.
+
 echo "1 * * * * root bash /root/xtrabackup/backup-hourly.sh > /dev/null 2>&1" >> /etc/crontab
 
