@@ -2,15 +2,22 @@
 
 ### Scripts usage.
 
-backup-hourly.sh        Backup mysql per hour.
+```bash
+# Backup mysql databases per hour.
+backup-hourly.sh
 
-backup.sh               Backup mysql per day.
+# Backup mysql databases per day.
+backup.sh
 
-backupuser.sh           Create an user on mysql for backup
+# Create an mysql user for backup.
+backupuser.sh
 
-restore.sh              Restore Mysql
+# Restore from backups
+restore.sh
+```
 
 ### How to use this via crontab.
 
+```bash
 echo "1 * * * * root bash /root/xtrabackup/backup-hourly.sh > /dev/null 2>&1" >> /etc/crontab
-
+```
