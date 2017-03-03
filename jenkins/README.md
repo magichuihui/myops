@@ -63,7 +63,7 @@
 可以下载phar文件，或者用composer来安装这些工具，但是要把它们加到变量PATH里，最后可以通过 `phpunit`, `phpcs`, `phploc`, `pdepend`, `phpmd`, `phpcpd`, 以及 `phpdox` 来调用
 
 
-### 自动化构建
+### 配置自动化构建
 
 用Apache Ant来调度自动化构建过程。构建的过程是通过build.xml来设置的（[点此下载](https://github.com/suhelen/baiyang/blob/master/jenkins/build.xml)）。此构建脚本假定PHP_Codesniffer, phpdox, phpmd 及 phpunit 的配置文件分别存在于 [build/phpcs.xml](https://github.com/suhelen/baiyang/blob/master/jenkins/phpcs.xml), [build/phpdox.xml](https://github.com/suhelen/baiyang/blob/master/jenkins/phpdox.xml), [build/phpmd.xml](https://github.com/suhelen/baiyang/blob/master/jenkins/phpmd.xml), [build/phpunit.xml](https://github.com/suhelen/baiyang/blob/master/jenkins/phpunit.xml)。
 
