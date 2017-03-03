@@ -104,4 +104,38 @@ build
     `-- pmd.xml
 ```
 
- 
+### 整合
+
+
+ #### 为PHP项目建立一个Jenkins job
+
+1. 下载Jenkins命令行
+
+ ```bash
+ wget http://your-jenkins-server:8080/jnlpJars/jenkins-cli.jar
+```
+
+2. 下载并安装任务模板
+
+```bash
+curl -L https://raw.githubusercontent.com/suhelen/baiyang/master/jenkins/config.xml | \
+     java -jar jenkins-cli.jar -s http://your-jenkins-server:8080 create-job php-template
+```
+
+3. 重新加载jenkins配置
+
+```bash
+java -jar jenkins-cli.jar -s http://your-jenkins-server:8080 reload-configuration
+```
+
+4. 新建一个jenkins job，在 `Copy from` 中输入 *php-template* 
+
+5. 取消 `关闭构建` 的选项，在源码管理中配置好 git 地址
+
+6. 保存
+
+#### 可能遇到的问题
+
+1. 生成HTML代码不能正确显示
+
+> 在浏览器中打开 *http://your-jenkins-server:8080/configureSecurity/* ，把 *Markup Formatter* 改为 *Safe HTML*。
