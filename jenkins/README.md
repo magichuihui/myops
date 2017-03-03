@@ -1,6 +1,6 @@
 # Jenkins管理PHP项目
 
-## 代码审查
+## 1. 代码审查
 
 在开发和维护Web应用程序的过程中，需要对软件质量进行监控并持续改进。下面为php项目提供一个Jenkins job的模板
 
@@ -60,7 +60,7 @@
 
 * [phpDox](http://phpdox.de/)
 
-可以下载phar文件，或者用composer来安装这些工具，但是要把它们加到变量PATH里，最后可以通过 `phpunit`, `phpcs`, `phploc`, `pdepend`, `phpmd`, `phpcpd`, 以及 `phpdox` 来调用
+可以下载phar文件，或者用composer来安装这些php工具，但是要把它们加到变量PATH里，让我们可以通过 `phpunit`, `phpcs`, `phploc`, `pdepend`, `phpmd`, `phpcpd`, 以及 `phpdox` 来调用。
 
 
 ### 配置自动化构建
@@ -136,6 +136,6 @@ build
 
 #### 可能遇到的问题
 
-1. 生成HTML代码不能正确显示
+1. 生成的HTML页面不能正确显示
 
 > 在浏览器中打开 *http://your-jenkins-server:8080/configureSecurity/* ，把 *Markup Formatter* 改为 *Safe HTML*。
