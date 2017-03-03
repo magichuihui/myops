@@ -65,7 +65,7 @@
 
 ### 自动化构建
 
-用Apache Ant来调度自动化构建过程。构建的过程是通过build.xml来设置的（[点此下载](https://github.com/suhelen/baiyang/blob/master/jenkins/build.xml)）。此构建脚本假定PHP_Codesniffer, phpdox, phpmd 及 phpunit 的配置文件存在于 `build/phpcs.xml`, `build/phpdox.xml`, `build/phpmd.xml`, `build/phpunit.xml`。
+用Apache Ant来调度自动化构建过程。构建的过程是通过build.xml来设置的（[点此下载](https://github.com/suhelen/baiyang/blob/master/jenkins/build.xml)）。此构建脚本假定PHP_Codesniffer, phpdox, phpmd 及 phpunit 的配置文件分别存在于 [build/phpcs.xml](https://github.com/suhelen/baiyang/blob/master/jenkins/phpcs.xml), [build/phpdox.xml](https://github.com/suhelen/baiyang/blob/master/jenkins/phpdox.xml), [build/phpmd.xml](https://github.com/suhelen/baiyang/blob/master/jenkins/phpmd.xml), [build/phpunit.xml](https://github.com/suhelen/baiyang/blob/master/jenkins/phpunit.xml)。
 
 构建之前项目的目录结构如下：
 
@@ -80,7 +80,7 @@ build
 `-- phpunit.xml
 ```
 
-构建之后：
+执行 `build.xml` 构建之后，会自动生成以下目录：
 
 ```
 src
