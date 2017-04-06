@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # This script will backup mysql database
-# How to use it:
-# echo "00 02 * * * root bash /root/backup.sh > /dev/null 2>&1" >> /etc/crontab
 
 mysql_dir=/var/mysql/data
 backup_dir=/mydata/mysql_backup/backup
@@ -38,16 +36,16 @@ if [ $day_of_week -eq 0 ]; then
     mkdir -p $backup_dir/$last_backup_dir
 
     # backup db
-    mysqldump -ubackup -ppassword -h$host --all-databases --single-transaction --flush-logs --quick --master-data=2 --delete-master-logs > $backup_dir/$week_of_year/`date +"%Y%m%d"`.sql
+    mysqldump -ubackup -ppassword -h$host --all-databases --single-transaction --flush-logs --quick --master-data=2 > $backup_dir/$week_of_year/`date +"%Y%m%d"`.sql
 
     # Copy the last week's binlog
     cp `tac $binlog.index | sed -n '2p'` $backup_dir/$last_backup_dir
 
     # delete binlogs except the last one
-    #rm -f `sed -n '$!p' $mysql_dir/$binlog.index`
+    rm -f `sed -n '$!p' $mysql_dir/$binlog.index`
 
     # write new binlog info to mysql-bin.inex
-    #sed -i '$ !d' $mysql_dir/mysql-bin.index
+    sed -i '$ !d' $mysql_dir/mysql-bin.index
 
 fi
 
