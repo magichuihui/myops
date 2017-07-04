@@ -13,7 +13,7 @@ cd /usr/local/src && wget https://github.com/libreswan/libreswan/archive/master.
 
 
 # config sysctl
-echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+echo "1" > /proc/sys/net/ipv4/ip_forward
 
 for each in /proc/sys/net/ipv4/conf/*
 do
