@@ -110,6 +110,8 @@ conn IPSec-xauth
 EOF
 
 cat > /etc/ipsec.d/ikev2.secrets <<EOF
+# for android XAUTH psk
+: PSK "password"
 : RSA /etc/ipsec.d/private/vpn.key.der
 test : EAP "baiyang@2017"
 EOF
