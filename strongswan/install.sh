@@ -8,13 +8,19 @@ yum install -y gmp-devel
 function compile() {
     tar zxvf strongswan-5.5.3.tar.gz
     cd strongswan-5.5.3
-    ./configure  --sysconfdir=/etc  --enable-openssl --enable-nat-transport --disable-mysql --disable-ldap  --disable-static --enable-shared --enable-md4 --enable-eap-mschapv2 --enable-eap-aka --enable-eap-aka-3gpp2  --enable-eap-gtc --enable-eap-identity --enable-eap-md5 --enable-eap-peap --enable-eap-radius --enable-eap-sim --enable-eap-sim-file --enable-eap-simaka-pseudonym --enable-eap-simaka-reauth --enable-eap-simaka-sql --enable-eap-tls --enable-eap-tnc --enable-eap-ttls
+    ./configure  --sysconfdir=/etc  --enable-openssl --enable-nat-transport --disable-mysql \
+        --disable-ldap  --disable-static --enable-shared --enable-md4 --enable-eap-mschapv2 \
+        --enable-eap-aka --enable-eap-aka-3gpp2  --enable-eap-gtc --enable-eap-identity \
+        --enable-eap-md5 --enable-eap-peap --enable-eap-radius --enable-eap-sim \
+        --enable-eap-sim-file --enable-eap-simaka-pseudonym --enable-eap-simaka-reauth \
+        --enable-eap-simaka-sql --enable-eap-tls --enable-eap-tnc --enable-eap-ttls
     make && make install
     return 0
 }
 
 # Download strongswan & install it
-cd /usr/local/src && curl -LO https://download.strongswan.org/strongswan-5.5.3.tar.gz && compile || (echo "Download strongswan failed!" && exit 1)
+cd /usr/local/src && curl -LO https://download.strongswan.org/strongswan-5.5.3.tar.gz \
+    && compile || (echo "Download strongswan failed!" && exit 1)
 
 source /etc/profile
 mkdir -p /etc/ipsec.d/certs
@@ -27,11 +33,14 @@ EXTERNAL_IP=$(ip -4 route get 1 | awk '{print $NF;exit}')
 
 cd /tmp
 ipsec pki --gen --type rsa --size 4096 --outform pem > vpnca.key.pem
-ipsec pki --self --flag serverAuth --in vpnca.key.pem --type rsa --digest sha1 --dn "C=CN, O=Baiyang Company, CN=Baiyang VPN CA" --ca > vpnca.crt.der
+ipsec pki --self --flag serverAuth --in vpnca.key.pem --type rsa --digest sha1 \
+    --dn "C=CN, O=Baiyang Company, CN=Baiyang VPN CA" --ca > vpnca.crt.der
 
 ipsec pki --gen --type rsa --size 4096 --outform pem > vpn.key.pem
 ipsec pki --pub --in vpn.key.pem --type rsa > vpn.csr
-ipsec pki --issue --cacert vpnca.crt.der --cakey vpnca.key.pem --digest sha1 --dn "C=CN, O=Baiyang Company, CN=$EXTERNAL_IP" --san "$EXTERNAL_IP" --flag serverAuth --flag ikeIntermediate --outform pem < vpn.csr > vpn.crt.pem
+ipsec pki --issue --cacert vpnca.crt.der --cakey vpnca.key.pem --digest sha1 \
+    --dn "C=CN, O=Baiyang Company, CN=$EXTERNAL_IP" --san "$EXTERNAL_IP" --flag serverAuth \
+    --flag ikeIntermediate --outform pem < vpn.csr > vpn.crt.pem
 openssl rsa -in vpn.key.pem -out vpn.key.der -outform DER
 
 cp vpnca.crt.der /etc/ipsec.d/cacerts/
