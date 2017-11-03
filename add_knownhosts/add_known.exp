@@ -1,0 +1,15 @@
+#!/usr/bin/expect -f
+
+set host [lindex $argv 0]
+set port [lindex $argv 1]
+set key [lindex $argv 2]
+
+set timeout 10  
+spawn ssh -i $key -p $port root@$host echo 1
+expect {
+            #first connect, no public key in ~/.ssh/known_hosts
+            "Are you sure you want to continue connecting (yes/no)?" {
+            send "yes\r"
+            }
+        }
+expect eof
